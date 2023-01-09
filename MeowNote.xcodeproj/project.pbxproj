@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E313F2F4296C7D6B00D37E50 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313F2F3296C7D6B00D37E50 /* Models.swift */; };
+		E313F2F6296C860800D37E50 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313F2F5296C860800D37E50 /* AlertPresenter.swift */; };
+		E313F2F8296C8CB700D37E50 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313F2F7296C8CB700D37E50 /* DatabaseManager.swift */; };
 		E3846EDD296C4259007243D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3846EDC296C4259007243D1 /* AppDelegate.swift */; };
 		E3846EDF296C4259007243D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3846EDE296C4259007243D1 /* SceneDelegate.swift */; };
 		E3846EE1296C4259007243D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3846EE0296C4259007243D1 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E313F2F3296C7D6B00D37E50 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		E313F2F5296C860800D37E50 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		E313F2F7296C8CB700D37E50 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E3846ED9296C4259007243D1 /* MeowNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3846EDC296C4259007243D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3846EDE296C4259007243D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,9 @@
 				E3EACB30296C441300879D8B /* Supporting_files */,
 				E3846EDE296C4259007243D1 /* SceneDelegate.swift */,
 				E3846EE0296C4259007243D1 /* ViewController.swift */,
+				E313F2F7296C8CB700D37E50 /* DatabaseManager.swift */,
+				E313F2F5296C860800D37E50 /* AlertPresenter.swift */,
+				E313F2F3296C7D6B00D37E50 /* Models.swift */,
 				E3846EE5296C425A007243D1 /* Assets.xcassets */,
 				E3846EE7296C425A007243D1 /* LaunchScreen.storyboard */,
 				E3846EEA296C425A007243D1 /* Info.plist */,
@@ -148,8 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E313F2F8296C8CB700D37E50 /* DatabaseManager.swift in Sources */,
 				E3846EE1296C4259007243D1 /* ViewController.swift in Sources */,
+				E313F2F6296C860800D37E50 /* AlertPresenter.swift in Sources */,
 				E3846EDD296C4259007243D1 /* AppDelegate.swift in Sources */,
+				E313F2F4296C7D6B00D37E50 /* Models.swift in Sources */,
 				E3EACB2F296C43FD00879D8B /* UIImage+Extension.swift in Sources */,
 				E3846EDF296C4259007243D1 /* SceneDelegate.swift in Sources */,
 				E3EACB2E296C43FD00879D8B /* UIColor+Extension.swift in Sources */,
@@ -291,7 +303,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KD4B6U375X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeowNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -303,6 +315,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anakud.meownote.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,7 +330,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KD4B6U375X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeowNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -329,6 +342,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anakud.meownote.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -4,14 +4,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-	let backgroundImageView: UIImageView = {
+	private var alerPresenter: AlertPresenterProtocol?
+	private let catDataBase: CatDatabaseMangerProtocol = CatDatabaseManger()
+
+	private let backgroundImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.image = .catInBread
 		imageView.contentMode = .scaleAspectFill
 		return imageView
 	}()
 
-	let nameLabel: UILabel = {
+	private let nameLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.font = UIFont(name: "Verdana Bold", size: 24)
@@ -19,14 +22,14 @@ class ViewController: UIViewController {
 		return label
 	}()
 
-	let catNameLabel: UILabel = {
+	private let catNameLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.font = UIFont(name: "Verdana", size: 20)
 		return label
 	}()
 
-	let noteLabel: UILabel = {
+	private let noteLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.font = UIFont(name: "Verdana Bold", size: 24)
@@ -34,7 +37,7 @@ class ViewController: UIViewController {
 		return label
 	}()
 
-	let catNoteLabel: UILabel = {
+	private let catNoteLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.font = UIFont(name: "Verdana", size: 20)
@@ -46,6 +49,8 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.alerPresenter = AlertPresenter()
+		self.alerPresenter?.didLoad(self)
 
 		let plusImage = UIImage(systemName: "plus")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
 		let rightBarButtonItem = UIBarButtonItem(image: plusImage,
@@ -100,46 +105,22 @@ class ViewController: UIViewController {
 			NSLayoutConstraint(item: verticalStack, attribute: .leading, relatedBy: .equal, toItem: self.backgroundImageView, attribute: .leading, multiplier: 1, constant: 24),
 			NSLayoutConstraint(item: verticalStack, attribute: .trailing, relatedBy: .equal, toItem: self.backgroundImageView, attribute: .trailing, multiplier: 1, constant: -24),
 		])
-	}
 
-	// Сокрытие кнопки удалить
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+		self.reloadLabels()
 		self.changeLeftBarButtonVisabilty()
 	}
+}
 
-	func presentAlert(name: String?, note: String?) {
-		let alert = UIAlertController(title: "Добавить", message: nil, preferredStyle: .alert)
-		alert.addTextField { textField in
-			textField.text = name
-			textField.placeholder = "Имя"
-		}
-		alert.addTextField { textField in
-			textField.text = note
-			textField.placeholder = "Заметка"
-		}
-		alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-		alert.addAction(UIAlertAction(title: "Coхранить", style: .default) { [weak self] _ in
+private extension ViewController {
+	func presentAlert(with cat: Cat) {
+		self.alerPresenter?.showAlert(for: NoteViewModel(title: cat.name,
+														 text: cat.note,
+														 handler: { [weak self] note in
 			guard let self else { return }
-			self.saveNote(name: alert.textFields?[0].text,
-						  note: alert.textFields?[1].text)
-		})
-		self.present(alert, animated: true)
-	}
-
-	func saveNote(name: String?, note: String?) {
-		print(#function)
-		self.catNameLabel.text = name
-		self.catNoteLabel.text = note
-		self.changeLeftBarButtonVisabilty()
-	}
-
-	func removeNote() {
-		print(#function)
-		self.catNameLabel.text = nil
-		self.catNoteLabel.text = nil
-
-		self.changeLeftBarButtonVisabilty()
+			self.catDataBase.createNote(Cat(name: note.title, note: note.text))
+			self.reloadLabels()
+			self.changeLeftBarButtonVisabilty()
+		}))
 	}
 
 	func changeLeftBarButtonVisabilty() {
@@ -150,17 +131,25 @@ class ViewController: UIViewController {
 			self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: "trash")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
 		}
 	}
+
+	func reloadLabels() {
+		let cat = self.catDataBase.readNote()
+		self.catNameLabel.text = cat.name
+		self.catNoteLabel.text = cat.note
+	}
 }
 
 // MARK: - Действия по тапу на кнопки
 @objc
-extension ViewController {
+private extension ViewController {
 	func addButtonDidTapped() {
-		self.presentAlert(name: self.catNameLabel.text,
-						  note: self.catNoteLabel.text)
+		self.presentAlert(with: Cat(name: self.catNameLabel.text,
+									note: self.catNoteLabel.text))
 	}
 
 	func removeButtonDidTapped() {
-		self.removeNote()
+		self.catDataBase.delete()
+		self.reloadLabels()
+		self.changeLeftBarButtonVisabilty()
 	}
 }
