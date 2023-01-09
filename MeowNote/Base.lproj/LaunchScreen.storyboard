@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sushi_cat" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-ZG-4il">
+                                <rect key="frame" x="0.0" y="182.66666666666663" width="393" height="512"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="light_gray"/>
+                        <constraints>
+                            <constraint firstItem="nVA-ZG-4il" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1Uq-4g-suf"/>
+                            <constraint firstItem="nVA-ZG-4il" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="8xN-4S-Ygn"/>
+                            <constraint firstItem="nVA-ZG-4il" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="q3J-RG-fb1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="nVA-ZG-4il" secondAttribute="leading" id="sy6-it-63C"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sushi_cat" width="512" height="512"/>
+        <namedColor name="light_gray">
+            <color red="0.88599997758865356" green="0.88200002908706665" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

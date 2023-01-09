@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "cat_in_bread.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

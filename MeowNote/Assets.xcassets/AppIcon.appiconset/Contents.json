@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "imgonline-com-ua-Resize-VzH0oplGq9HG22mJ.jpg",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
