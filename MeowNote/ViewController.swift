@@ -96,9 +96,6 @@ class ViewController: UIViewController {
 		// Второй способ установки констрейнтов вью
 		self.backgroundImageView.addSubview(verticalStack)
 		verticalStack.translatesAutoresizingMaskIntoConstraints = false
-		verticalStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
-		verticalStack.leadingAnchor.constraint(equalTo: self.backgroundImageView.leadingAnchor, constant: 24).isActive = true
-		verticalStack.trailingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor,  constant: -24).isActive = true
 
 		self.view.addConstraints([
 			NSLayoutConstraint(item: verticalStack, attribute: .top, relatedBy: .equal, toItem:  self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 24),
