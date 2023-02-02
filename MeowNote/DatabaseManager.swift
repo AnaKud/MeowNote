@@ -3,13 +3,13 @@
 
 import Foundation
 
-protocol CatDatabaseMangerProtocol: AnyObject {
+protocol CatDatabaseManagerProtocol: AnyObject {
 	func createNote(_ cat: Cat)
 	func readNote() -> Cat
 	func delete()
 }
 
-class CatDatabaseManger: CatDatabaseMangerProtocol {
+class CatDatabaseManager: CatDatabaseManagerProtocol {
 	private let catKey = "Cat"
 
 	func createNote(_ cat: Cat) {

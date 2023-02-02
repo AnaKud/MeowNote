@@ -5,7 +5,7 @@ import UIKit
 
 class ViewController: UIViewController {
 	private var alerPresenter: AlertPresenterProtocol?
-	private let catDataBase: CatDatabaseMangerProtocol = CatDatabaseManger()
+	private let catDataBase: CatDatabaseManagerProtocol = CatDatabaseManager()
 
 	private let backgroundImageView: UIImageView = {
 		let imageView = UIImageView()
