@@ -5,14 +5,14 @@ import UIKit
 import AccessibilityIds
 
 protocol AlertPresenterProtocol: AnyObject {
-	func didLoad(_ vc: UIViewController)
+	func didLoad(_ vc: AlertPresenterDelegate?)
 	func showAlert(for noteViewModel: NoteViewModel)
 }
 
 class AlertPresenter: AlertPresenterProtocol {
-	private weak var viewController: UIViewController?
+	private weak var viewController: AlertPresenterDelegate?
 
-	func didLoad(_ vc: UIViewController) {
+	func didLoad(_ vc: AlertPresenterDelegate?) {
 		self.viewController = vc
 	}
 
@@ -34,6 +34,6 @@ class AlertPresenter: AlertPresenterProtocol {
 									   text: alert.textFields?[1].text))
 		})
 		alert.view.accessibilityIdentifier = AccessibilityIds.Alert.view
-		self.viewController?.present(alert, animated: true)
+		self.viewController?.present(alert: alert, animated: true)
 	}
 }

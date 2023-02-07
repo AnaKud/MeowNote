@@ -4,9 +4,13 @@
 import UIKit
 import AccessibilityIds
 
+protocol ViewControllerProtocol: AlertPresenterDelegate {
+	func changeLeftBarButtonVisibility(_ isVisible: Bool)
+	func reloadLabels(with cat: Cat)
+}
+
 class ViewController: UIViewController {
-	private var alertPresenter: AlertPresenterProtocol?
-	private let catDataBase: CatDatabaseManagerProtocol = CatDatabaseManager()
+	private var presenter: PresenterProtocol?
 
 	private let backgroundImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -55,8 +59,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.alertPresenter = AlertPresenter()
-		self.alertPresenter?.didLoad(self)
+		self.presenter = Presenter(vc: self)
 		self.configureNavigationBar()
 	}
 
@@ -67,8 +70,7 @@ class ViewController: UIViewController {
 		self.backgroundImageView.addSubview(self.stackView)
 		self.configureStackViewConstraints()
 
-		self.reloadLabels()
-		self.changeLeftBarButtonVisibility()
+		self.presenter?.vcWillAppear()
 	}
 }
 
@@ -137,29 +139,16 @@ private extension ViewController {
 }
 
 // MARK: - UI Changing
-private extension ViewController {
-	func presentAlert(with cat: Cat) {
-		self.alertPresenter?.showAlert(for: NoteViewModel(title: cat.name,
-														 text: cat.note,
-														 handler: { [weak self] note in
-			guard let self else { return }
-			self.catDataBase.createNote(Cat(name: note.title, note: note.text))
-			self.reloadLabels()
-			self.changeLeftBarButtonVisibility()
-		}))
-	}
-
-	func changeLeftBarButtonVisibility() {
-		if self.catNameLabel.text == nil &&
-			self.catNoteLabel.text == nil {
-			self.navigationItem.leftBarButtonItem?.image = nil
-		} else {
+extension ViewController: ViewControllerProtocol {
+	func changeLeftBarButtonVisibility(_ isVisible: Bool) {
+		if isVisible {
 			self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: "trash")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+		} else {
+			self.navigationItem.leftBarButtonItem?.image = nil
 		}
 	}
 
-	func reloadLabels() {
-		let cat = self.catDataBase.readNote()
+	func reloadLabels(with cat: Cat) {
 		self.catNameLabel.text = cat.name
 		self.catNoteLabel.text = cat.note
 	}
@@ -169,13 +158,11 @@ private extension ViewController {
 @objc
 private extension ViewController {
 	func addButtonDidTapped() {
-		self.presentAlert(with: Cat(name: self.catNameLabel.text,
-									note: self.catNoteLabel.text))
+		self.presenter?.presentAlert(with: Cat(name: self.catNameLabel.text,
+											   note: self.catNoteLabel.text))
 	}
 
 	func removeButtonDidTapped() {
-		self.catDataBase.delete()
-		self.reloadLabels()
-		self.changeLeftBarButtonVisibility()
+		self.presenter?.removeButtonDidTapped()
 	}
 }
