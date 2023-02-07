@@ -10,6 +10,10 @@
 		E313F2F4296C7D6B00D37E50 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313F2F3296C7D6B00D37E50 /* Models.swift */; };
 		E313F2F6296C860800D37E50 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313F2F5296C860800D37E50 /* AlertPresenter.swift */; };
 		E313F2F8296C8CB700D37E50 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313F2F7296C8CB700D37E50 /* DatabaseManager.swift */; };
+		E37BD49A298B922F006D200B /* AccessibilityIds.h in Headers */ = {isa = PBXBuildFile; fileRef = E37BD499298B922F006D200B /* AccessibilityIds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E37BD49D298B922F006D200B /* AccessibilityIds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37BD497298B922F006D200B /* AccessibilityIds.framework */; };
+		E37BD49E298B922F006D200B /* AccessibilityIds.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E37BD497298B922F006D200B /* AccessibilityIds.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E37BD4A4298B923C006D200B /* AccessibilityIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BD4A3298B923C006D200B /* AccessibilityIds.swift */; };
 		E3846EDD296C4259007243D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3846EDC296C4259007243D1 /* AppDelegate.swift */; };
 		E3846EDF296C4259007243D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3846EDE296C4259007243D1 /* SceneDelegate.swift */; };
 		E3846EE1296C4259007243D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3846EE0296C4259007243D1 /* ViewController.swift */; };
@@ -19,10 +23,37 @@
 		E3EACB2F296C43FD00879D8B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EACB2D296C43FD00879D8B /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E37BD49B298B922F006D200B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3846ED1296C4259007243D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E37BD496298B922F006D200B;
+			remoteInfo = AccessibilityIds;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E37BD4A2298B922F006D200B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E37BD49E298B922F006D200B /* AccessibilityIds.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E313F2F3296C7D6B00D37E50 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E313F2F5296C860800D37E50 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		E313F2F7296C8CB700D37E50 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E37BD497298B922F006D200B /* AccessibilityIds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AccessibilityIds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37BD499298B922F006D200B /* AccessibilityIds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessibilityIds.h; sourceTree = "<group>"; };
+		E37BD4A3298B923C006D200B /* AccessibilityIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIds.swift; sourceTree = "<group>"; };
 		E3846ED9296C4259007243D1 /* MeowNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3846EDC296C4259007243D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3846EDE296C4259007243D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,20 +66,38 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E3846ED6296C4259007243D1 /* Frameworks */ = {
+		E37BD494298B922F006D200B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E3846ED6296C4259007243D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E37BD49D298B922F006D200B /* AccessibilityIds.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E37BD498298B922F006D200B /* AccessibilityIds */ = {
+			isa = PBXGroup;
+			children = (
+				E37BD499298B922F006D200B /* AccessibilityIds.h */,
+				E37BD4A3298B923C006D200B /* AccessibilityIds.swift */,
+			);
+			path = AccessibilityIds;
+			sourceTree = "<group>";
+		};
 		E3846ED0296C4259007243D1 = {
 			isa = PBXGroup;
 			children = (
 				E3846EDB296C4259007243D1 /* MeowNote */,
+				E37BD498298B922F006D200B /* AccessibilityIds */,
 				E3846EDA296C4259007243D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E3846ED9296C4259007243D1 /* MeowNote.app */,
+				E37BD497298B922F006D200B /* AccessibilityIds.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,7 +139,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		E37BD492298B922F006D200B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E37BD49A298B922F006D200B /* AccessibilityIds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		E37BD496298B922F006D200B /* AccessibilityIds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E37BD49F298B922F006D200B /* Build configuration list for PBXNativeTarget "AccessibilityIds" */;
+			buildPhases = (
+				E37BD492298B922F006D200B /* Headers */,
+				E37BD493298B922F006D200B /* Sources */,
+				E37BD494298B922F006D200B /* Frameworks */,
+				E37BD495298B922F006D200B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccessibilityIds;
+			productName = AccessibilityIds;
+			productReference = E37BD497298B922F006D200B /* AccessibilityIds.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E3846ED8296C4259007243D1 /* MeowNote */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3846EED296C425A007243D1 /* Build configuration list for PBXNativeTarget "MeowNote" */;
@@ -97,10 +176,12 @@
 				E3846ED5296C4259007243D1 /* Sources */,
 				E3846ED6296C4259007243D1 /* Frameworks */,
 				E3846ED7296C4259007243D1 /* Resources */,
+				E37BD4A2298B922F006D200B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E37BD49C298B922F006D200B /* PBXTargetDependency */,
 			);
 			name = MeowNote;
 			productName = MeowNote;
@@ -117,6 +198,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					E37BD496298B922F006D200B = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+					};
 					E3846ED8296C4259007243D1 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -136,11 +221,19 @@
 			projectRoot = "";
 			targets = (
 				E3846ED8296C4259007243D1 /* MeowNote */,
+				E37BD496298B922F006D200B /* AccessibilityIds */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E37BD495298B922F006D200B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3846ED7296C4259007243D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +246,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E37BD493298B922F006D200B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E37BD4A4298B923C006D200B /* AccessibilityIds.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3846ED5296C4259007243D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +271,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E37BD49C298B922F006D200B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E37BD496298B922F006D200B /* AccessibilityIds */;
+			targetProxy = E37BD49B298B922F006D200B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E3846EE7296C425A007243D1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -182,6 +291,77 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E37BD4A0298B922F006D200B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KD4B6U375X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AccessibilityIds;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E37BD4A1298B922F006D200B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KD4B6U375X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AccessibilityIds;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		E3846EEB296C425A007243D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -299,6 +479,7 @@
 		E3846EEE296C425A007243D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -325,6 +506,7 @@
 		E3846EEF296C425A007243D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -351,6 +533,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E37BD49F298B922F006D200B /* Build configuration list for PBXNativeTarget "AccessibilityIds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E37BD4A0298B922F006D200B /* Debug */,
+				E37BD4A1298B922F006D200B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E3846ED4296C4259007243D1 /* Build configuration list for PBXProject "MeowNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
