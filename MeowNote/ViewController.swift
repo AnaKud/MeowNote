@@ -4,7 +4,7 @@
 import UIKit
 import AccessibilityIds
 
-protocol ViewControllerProtocol: AlertPresenterDelegate {
+protocol ViewControllerProtocol: AnyObject {
 	func changeLeftBarButtonVisibility(_ isVisible: Bool)
 	func reloadLabels(with cat: Cat)
 }
@@ -59,7 +59,9 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.presenter = Presenter(vc: self)
+		self.presenter = Presenter(vc: self,
+								   catDataBase: CatDatabaseManager(),
+								   alertPresenter: AlertPresenter(self))
 		self.configureNavigationBar()
 	}
 

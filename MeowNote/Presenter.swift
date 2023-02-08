@@ -11,17 +11,19 @@ protocol PresenterProtocol: AnyObject {
 
 class Presenter: PresenterProtocol {
 	private var alertPresenter: AlertPresenterProtocol?
-	private let catDataBase: CatDatabaseManagerProtocol = CatDatabaseManager()
+	private let catDataBase: CatDatabaseManagerProtocol
 	private weak var vc: ViewControllerProtocol?
 
-	init(vc: ViewControllerProtocol?) {
+	init(vc: ViewControllerProtocol?,
+		 catDataBase: CatDatabaseManagerProtocol,
+		 alertPresenter: AlertPresenterProtocol?) {
 		self.vc = vc
-		self.alertPresenter = AlertPresenter()
+		self.catDataBase = catDataBase
+		self.alertPresenter = alertPresenter
 	}
 
 	func vcWillAppear() {
 		self.reloadLabels()
-		self.alertPresenter?.didLoad(self.vc)
 	}
 
 	func presentAlert(with cat: Cat) {
