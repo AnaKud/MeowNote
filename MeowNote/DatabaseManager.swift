@@ -3,7 +3,12 @@
 
 import Foundation
 
-protocol CatDatabaseManagerProtocol: AnyObject {
+protocol DatabaseManagerTestProtocol: AnyObject {
+	func createNote(_ cat: Cat)
+	func delete()
+}
+
+protocol CatDatabaseManagerProtocol: DatabaseManagerTestProtocol {
 	func createNote(_ cat: Cat)
 	func readNote() -> Cat
 	func delete()
