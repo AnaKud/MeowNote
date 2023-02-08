@@ -29,7 +29,7 @@ class AlertPresenter: AlertPresenterProtocol {
 			textField.accessibilityIdentifier = AccessibilityIds.Alert.noteTF
 		}
 		alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-		alert.addAction(UIAlertAction(title: "Coхранить", style: .default) { _ in
+		alert.addAction(UIAlertAction(title: "Сохранить", style: .default) { _ in
 			noteViewModel.handler(Note(title: alert.textFields?[0].text,
 									   text: alert.textFields?[1].text))
 		})
