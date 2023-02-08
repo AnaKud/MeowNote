@@ -4,37 +4,50 @@
 import XCTest
 @testable import MeowNote
 
-class ViewControllerMock: ViewControllerProtocol {
-	private(set) var leftBarButtonVisible: Bool = true
-	private(set) var alertIsShown: Bool = false
-
-	func changeLeftBarButtonVisibility(_ isVisible: Bool) {
-		self.leftBarButtonVisible = isVisible
-	}
-
-	func reloadLabels(with cat: MeowNote.Cat) {
-	}
-
-	func present(alert: UIAlertController, animated: Bool) {
-		self.alertIsShown = true
-	}
-}
-
 final class MeowNoteTests: XCTestCase {
-	func testPresenter() {
-		let mock = ViewControllerMock()
-		let sut = Presenter(vc: mock)
-		XCTAssertEqual(mock.leftBarButtonVisible, true)
+	func testPresenter_removeButtonDidTapped_databaseIsEmptyAndButtonNotVisible() {
+		let catMock = Cat(name: "mockName", note: "mockNote")
+
+		let vcMock = ViewControllerMock(leftBarButtonVisible: true)
+		let dbMock = CatDatabaseManagerMock(cat: catMock)
+		let alertMock = AlertPresenterMock()
+
+		let sut = Presenter(vc: vcMock,
+							catDataBase: dbMock,
+							alertPresenter: alertMock)
+		XCTAssertEqual(catMock, dbMock.cat)
+		XCTAssertEqual(vcMock.leftBarButtonVisible, true)
+
 		sut.removeButtonDidTapped()
-		XCTAssertEqual(mock.leftBarButtonVisible, false)
+
+		XCTAssertNil(dbMock.cat)
+		XCTAssertEqual(vcMock.leftBarButtonVisible, false)
 	}
 
-	func testPresenter1() {
-		let mock = ViewControllerMock()
-		let sut = Presenter(vc: mock)
-		XCTAssertEqual(mock.alertIsShown, false)
+	func testPresenter_vcWillAppear_labelsAreReloaded() {
+		let vcMock = ViewControllerMock(leftBarButtonVisible: true)
+		let dbMock = CatDatabaseManagerMock()
+		let alertMock = AlertPresenterMock()
+
+		let sut = Presenter(vc: vcMock,
+							catDataBase: dbMock,
+							alertPresenter: alertMock)
+		XCTAssertEqual(vcMock.labelsReloaded, false)
+		sut.vcWillAppear()
+		XCTAssertEqual(vcMock.labelsReloaded, true)
+	}
+
+	func testPresenterPresentAlert() {
+		let vcMock = ViewControllerMock()
+		let dbMock = CatDatabaseManagerMock()
+		let alertMock = AlertPresenterMock()
+
+		let sut = Presenter(vc: vcMock,
+							catDataBase: dbMock,
+							alertPresenter: alertMock)
+		XCTAssertEqual(alertMock.alertIsShown, false)
 		let catExpectation = Cat(name: "Cat")
 		sut.presentAlert(with: catExpectation)
-		XCTAssertEqual(mock.alertIsShown, false)
+		XCTAssertEqual(alertMock.alertIsShown, true)
 	}
 }
