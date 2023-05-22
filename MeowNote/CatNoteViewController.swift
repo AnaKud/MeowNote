@@ -1,9 +1,20 @@
-// ViewController.swift
+// CatNoteViewController.swift
 // Created by Anastasiya Kudasheva
 
 import UIKit
 
-class ViewController: UIViewController {
+class CatNoteViewController: UIViewController, AlertPresentableDelegate {
+	/* 1 способ через инициализатор
+	 var alertPresenter: AlertPresenterProtocol?
+	 */
+
+	/* 2 способ через метод
+	 var alertPresenter: AlertPresenterProtocolWithInjectionInFunc?
+	 */
+
+	/* 3 способ через свойство*/
+	var alertPresenter: AlertPresenter?
+
 	let backgroundImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.image = .catInBread
@@ -46,6 +57,18 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		/* 1 способ через иницилизатор
+		 alertPresenter = AlertPresenterWithInializatorInjection(delegate: self)
+		 */
+
+		/* 2 способ через метод
+		 alertPresenter.didLoad(self)
+		 */
+
+		/* 3 способ через свойство*/
+		alertPresenter = AlertPresenter()
+		alertPresenter?.delegate = self
 
 		let plusImage = UIImage(systemName: "plus")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
 		let rightBarButtonItem = UIBarButtonItem(image: plusImage,
@@ -105,23 +128,15 @@ class ViewController: UIViewController {
 		self.changeLeftBarButtonVisabilty()
 	}
 
+	func present(alert: UIAlertController, animated flag: Bool) {
+		self.present(alert, animated: flag)
+	}
+
 	func presentAlert(name: String?, note: String?) {
-		let alert = UIAlertController(title: "Добавить", message: nil, preferredStyle: .alert)
-		alert.addTextField { textField in
-			textField.text = name
-			textField.placeholder = "Имя"
-		}
-		alert.addTextField { textField in
-			textField.text = note
-			textField.placeholder = "Заметка"
-		}
-		alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-		alert.addAction(UIAlertAction(title: "Coхранить", style: .default) { [weak self] _ in
-			guard let self else { return }
-			self.saveNote(name: alert.textFields?[0].text,
-						  note: alert.textFields?[1].text)
+		alertPresenter?.showAlert(name: name, note: note, completion: { [weak self] catNote in
+			self?.saveNote(name: catNote.name,
+						  note: catNote.note)
 		})
-		self.present(alert, animated: true)
 	}
 
 	func saveNote(name: String?, note: String?) {
@@ -151,7 +166,7 @@ class ViewController: UIViewController {
 
 // MARK: - Действия по тапу на кнопки
 @objc
-extension ViewController {
+extension CatNoteViewController {
 	func addButtonDidTapped() {
 		self.presentAlert(name: self.catNameLabel.text,
 						  note: self.catNoteLabel.text)
